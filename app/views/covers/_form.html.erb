@@ -1,0 +1,27 @@
+<%= form_with(model: cover) do |form| %>
+  <% if cover.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cover.errors.count, "error") %> prohibited this cover from being saved:</h2>
+
+      <ul>
+        <% cover.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_id %>
+    <%= form.text_field :book_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
