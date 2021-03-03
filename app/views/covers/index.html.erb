@@ -16,7 +16,7 @@
       <tr>
         <td><%= cover.title %></td>
         <td><%= cover.book_id %></td>
-        <td><%= link_to 'Show', cover %></td>
+        <td><%= link_to 'Show', pages_path %></td>
         <td><%= link_to 'Edit', edit_cover_path(cover) %></td>
         <td><%= link_to 'Destroy', cover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -27,3 +27,5 @@
 <br>
 
 <%= link_to 'New Cover', new_cover_path %>
+<%= link_to 'Back', books_path %>
+

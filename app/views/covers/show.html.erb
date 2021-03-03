@@ -6,9 +6,14 @@
 </p>
 
 <p>
-  <strong>Book:</strong>
+  <strong>Book ID:</strong>
   <%= @cover.book_id %>
 </p>
 
+ <% if @cover.photos.attached? %>
+    <p><%= image_tag @cover.photos %></p>
+<% end %>
+
+<%= link_to 'Add image', new_image_url %>
 <%= link_to 'Edit', edit_cover_path(@cover) %> |
-<%= link_to 'Back', covers_path %>
+<%= link_to 'Back', books_path %>

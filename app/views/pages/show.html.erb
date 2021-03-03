@@ -12,8 +12,12 @@
 
 <p>
   <strong>Book:</strong>
-  <%= @page.book_id %>
+  <%= Book.find(@page.book_id).cover.title %>
 </p>
+
+ <% if @page.photos.attached? %>
+  <td><%= image_tag @page.photos %></td>
+<% end %>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

@@ -17,7 +17,7 @@
       <tr>
         <td><%= page.number %></td>
         <td><%= page.content %></td>
-        <td><%= page.book_id %></td>
+        <td><%= Book.find(page.book_id).cover.title %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>
         <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +29,4 @@
 <br>
 
 <%= link_to 'New Page', new_page_path %>
+<%= link_to 'Back', books_path %>

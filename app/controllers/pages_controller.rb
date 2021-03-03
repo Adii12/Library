@@ -22,6 +22,7 @@ class PagesController < ApplicationController
   # POST /pages or /pages.json
   def create
     @page = Page.new(page_params)
+    @page.photos.attach(params[:photos])
 
     respond_to do |format|
       if @page.save
@@ -64,6 +65,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:number, :content, :book_id)
+      params.require(:page).permit(:number, :content, :book_id, :photos)
     end
 end

@@ -3,11 +3,12 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.order(:title)
   end
 
   # GET /books/1 or /books/1.json
   def show
+    
   end
 
   # GET /books/new
@@ -25,7 +26,8 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: "Book was successfully created." }
+        flash[:notice] = "Book id = #{Book.last.id}"
+        format.html { redirect_to new_cover_path, notice: "Book id = #{Book.last.id}. Put this in Book field" }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }

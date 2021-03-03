@@ -12,6 +12,7 @@ class CoversController < ApplicationController
 
   # GET /covers/new
   def new
+
     @cover = Cover.new
   end
 
@@ -22,7 +23,7 @@ class CoversController < ApplicationController
   # POST /covers or /covers.json
   def create
     @cover = Cover.new(cover_params)
-
+    @cover.photos.attach(params[:photos])
     respond_to do |format|
       if @cover.save
         format.html { redirect_to @cover, notice: "Cover was successfully created." }
@@ -64,6 +65,6 @@ class CoversController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cover_params
-      params.require(:cover).permit(:title, :book_id)
+      params.require(:cover).permit(:title, :book_id, :photos)
     end
 end

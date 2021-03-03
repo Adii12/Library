@@ -1,4 +1,5 @@
 class Page < ApplicationRecord
+  has_one_attached :photos
   include Imageable
   belongs_to :book
 end
